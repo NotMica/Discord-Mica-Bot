@@ -4,8 +4,6 @@ const fs = require("fs");
 const bot = new Discord.Client({disableEveryone: true});
 bot.commands = new Discord.Collection();
 
-var negrresponse = ["Máš ban, enjoy :)", "*Banned*", "Triggered", "Wanna ban nigga?"]
-var randomnegr = negrresponse[Math.floor(Math.random()*options.length)];
 
 fs.readdir("./commands/", (err, files) => {
 
@@ -107,11 +105,11 @@ bot.on("message", async message => {
     }
 
     if(cmd === `negr`){
-        return message.channel.send(randomnegr).then().catch(console.error);
+        return message.channel.send("Máš ban, enjoy! :)");
     }
 
     if(cmd === `Negr`){
-        return message.channel.send(randomnegr).then().catch(console.error);
+        return message.channel.send("Wanna ban nigga?");
     }
 })
 
