@@ -27,7 +27,7 @@ fs.readdir("./commands/", (err, files) => {
 
 bot.on("ready", async () => {
     console.log(`${bot.user.username} je online!`);
-    bot.user.setGame("Beta 1.1.7!")
+    bot.user.setGame("Beta 1.1.5!")
 });
 
 bot.on("message", async message => {
@@ -115,4 +115,4 @@ bot.on("message", async message => {
     }
 })
 
-bot.login(process.env.BOT_TOKEN);
+bot.login(botconfig.token);
