@@ -4,7 +4,6 @@ const fs = require("fs");
 const bot = new Discord.Client({disableEveryone: true});
 bot.commands = new Discord.Collection();
 
-
 fs.readdir("./commands/", (err, files) => {
 
     if(err) console.log(err);
@@ -25,7 +24,7 @@ fs.readdir("./commands/", (err, files) => {
 
 bot.on("ready", async () => {
     console.log(`${bot.user.username} je online!`);
-    bot.user.setGame("Beta 1.1.5!")
+    bot.user.setGame("Beta 1.1.7!")
 });
 
 bot.on("message", async message => {
@@ -103,14 +102,25 @@ bot.on("message", async message => {
     if(cmd === `Jsi` + ` tu`){
         return message.channel.send("Yep, jsem tu! :joy:");
     }
-
+    
     if(cmd === `negr`){
-        return message.channel.send("Máš ban, enjoy! :)");
+        message.channel.send("Wanna ban nigga?");
     }
 
     if(cmd === `Negr`){
-        return message.channel.send("Wanna ban nigga?");
+        message.channel.send("Máš ban, enjoy :)");
     }
+
+    if(cmd === `Nečum`)
+    return message.channel.send("", {
+        file: "https://i.imgur.com/7sa6odz.png"
+    });
+
+    if(cmd === `nečum`)
+    return message.channel.send("", {
+        file: "https://i.imgur.com/7sa6odz.png"
+    });
+        
 })
 
 bot.login(process.env.BOT_TOKEN);
