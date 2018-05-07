@@ -24,7 +24,7 @@ fs.readdir("./commands/", (err, files) => {
 
 bot.on("ready", async () => {
     console.log(`${bot.user.username} je online!`);
-    bot.user.setGame("Beta 1.1.0!")
+    bot.user.setGame("Beta 1.1.5!")
 });
 
 bot.on("message", async message => {
@@ -87,21 +87,29 @@ bot.on("message", async message => {
         return message.channel.send("Ano? :joy:");
     }
 
-    if(cmd === `jsi tu?`){
+    if(cmd === `jsi` + ` tu?`){
         return message.channel.send("Yep, jsem tu! :joy:");
     }
 
-    if(cmd === `Jsi tu?`){
+    if(cmd === `Jsi` + ` tu?`){
         return message.channel.send("Yep, jsem tu! :joy:");
     }
 
-    if(cmd === `Jsi tu`){
+    if(cmd === `jsi` + ` tu`){
         return message.channel.send("Yep, jsem tu! :joy:");
     }
 
-    if(cmd === `jsi tu`){
+    if(cmd === `Jsi` + ` tu`){
         return message.channel.send("Yep, jsem tu! :joy:");
+    }
+
+    if(cmd === `negr`){
+        return message.channel.send("Máš ban, enjoy :)");
+    }
+
+    if(cmd === `Negr`){
+        return message.channel.send("Máš ban, enjoy :)");
     }
 })
 
-bot.login(process.env.BOT_TOKEN);
+bot.login(botconfig.token);
