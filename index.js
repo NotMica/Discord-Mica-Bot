@@ -104,11 +104,11 @@ bot.on("message", async message => {
     }
 
     if(cmd === `negr`){
-        return message.channel.send("Máš ban, enjoy :)");
+        return message.channel.send("Máš ban, enjoy :)" || "*Banned*" || "Triggered" || "Wanna ban nigga?");
     }
 
     if(cmd === `Negr`){
-        return message.channel.send("Máš ban, enjoy :)");
+        return message.channel.send("Máš ban, enjoy :)" || "*Banned*" || "Triggered" || "Wanna ban nigga?");
     }
 })
 
