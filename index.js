@@ -24,7 +24,7 @@ fs.readdir("./commands/", (err, files) => {
 
 bot.on("ready", async () => {
     console.log(`${bot.user.username} je online!`);
-    bot.user.setGame("Beta 1.1.5!")
+    bot.user.setGame("Beta 1.1.6!")
 });
 
 bot.on("message", async message => {
