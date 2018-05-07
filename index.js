@@ -39,7 +39,7 @@ bot.on("message", async message => {
     let commandfile = bot.commands.get(cmd.slice(prefix.length));
     if(commandfile) commandfile.run(bot, message, args);
 
-    if(cmd === `${prefix}Ahoj`){
+    if(cmd === `Ahoj`){
         return message.channel.send("Čuuus!");
     };
 
