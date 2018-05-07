@@ -1,3 +1,3 @@
-web: nodemon index.js
-worker: nodemon index.js
+web: node index.js
+worker: node index.js
 
