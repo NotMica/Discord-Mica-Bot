@@ -1,3 +1,7 @@
+/*
+MicaBot is designed by freeM1CA (c) 2018
+*/
+
 const botconfig = require("./botconfig.json");
 const Discord = require("discord.js");
 const fs = require("fs");
@@ -24,7 +28,7 @@ fs.readdir("./commands/", (err, files) => {
 
 bot.on("ready", async () => {
     console.log(`${bot.user.username} je online!`);
-    bot.user.setGame("Beta 1.2.0!")
+    bot.user.setGame("Beta 1.2.7!")
 });
 
 bot.on("message", async message => {
@@ -42,6 +46,30 @@ bot.on("message", async message => {
     if(cmd === `Ahoj`){
         return message.channel.send("Čuuus!");
     };
+
+    if(cmd === `${prefix}Staty`){
+        var msgs = [
+            "!ftn freeM1CA",
+            "!ftn NNeTTik",
+            "!ftn Tian2121",
+            "!ftn NiceKill_CZ" 
+        ];
+        
+        function sendMsgs(msgs, delay) {
+            if (msgs.length < 1) return; // we're done
+            var remain = msgs.slice(1);
+            var sendRemain = sendMsgs.bind(null, remain, delay);
+            message.channel.send(msgs[0]).then(function() {
+                setTimeout(sendRemain, delay);
+            });
+        }
+        
+        sendMsgs(msgs, 5500);
+    };
+
+    if(message.content.startsWith("!!servis")) {
+        message.channel.send(new Date().getTime() - message.createdTimestamp + "ms" + ", stav: ONLINE!");        
+    }
 
     if(cmd === `${prefix}reee`)
     {      
@@ -136,5 +164,7 @@ bot.on("message", async message => {
     if(cmd === `Synu`){
     return message.channel.send("Tati?");
     }
+    
 })
+
 bot.login(process.env.BOT_TOKEN);
