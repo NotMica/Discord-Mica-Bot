@@ -44,6 +44,7 @@ bot.on("message", async message => {
     if(commandfile) commandfile.run(bot, message, args);
 
     if(cmd === `${prefix}!!StartStaty`){
+        message.channel.send("Done");
     var myVar = setInterval(myTimer, 10800000);
 
     function myTimer() {
@@ -94,11 +95,13 @@ bot.on("message", async message => {
     };
 
     if(message.content.startsWith("!!servis")) {
-        message.channel.send(new Date().getTime() - message.createdTimestamp + "ms" + ", stav: ONLINE!");        
+        message.channel.send(new Date().getTime() - message.createdTimestamp + "ms" + ", stav: ONLINE!");     
+        message.channel.send("bot.login(process.env.BOT_TOKEN);");   
     }
 
     if(message.content.startsWith("!!Servis")) {
-        message.channel.send(new Date().getTime() - message.createdTimestamp + "ms" + ", stav: ONLINE!");        
+        message.channel.send(new Date().getTime() - message.createdTimestamp + "ms" + ", stav: ONLINE!");      
+        message.channel.send("bot.login(process.env.BOT_TOKEN);");     
     }
 
     if(cmd === `${prefix}reee`)
