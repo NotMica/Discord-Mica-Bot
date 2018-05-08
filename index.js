@@ -28,7 +28,7 @@ fs.readdir("./commands/", (err, files) => {
 
 bot.on("ready", async () => {
     console.log(`${bot.user.username} je online!`);
-    bot.user.setGame("Beta 1.2.7!")
+    bot.user.setGame("Beta 1.3.1!")
 });
 
 bot.on("message", async message => {
@@ -42,6 +42,16 @@ bot.on("message", async message => {
 
     let commandfile = bot.commands.get(cmd.slice(prefix.length));
     if(commandfile) commandfile.run(bot, message, args);
+
+    if(cmd === `${prefix}!!StartStaty`){
+    var myVar = setInterval(myTimer, 10800000);
+
+    function myTimer() {
+    var d = new Date();
+    return message.channel.send("!!Staty");
+
+    }
+};
 
     if(cmd === `Ahoj`){
         return message.channel.send("Čuuus!");
@@ -68,6 +78,10 @@ bot.on("message", async message => {
     };
 
     if(message.content.startsWith("!!servis")) {
+        message.channel.send(new Date().getTime() - message.createdTimestamp + "ms" + ", stav: ONLINE!");        
+    }
+
+    if(message.content.startsWith("!!Servis")) {
         message.channel.send(new Date().getTime() - message.createdTimestamp + "ms" + ", stav: ONLINE!");        
     }
 
