@@ -1,12 +1,12 @@
 /*
-MicaBot is designed by freeM1CA (c) 2018
+NotBot is designed by freeM1CA (c) 2018
 */
-
 const botconfig = require("./botconfig.json");
 const Discord = require("discord.js");
 const fs = require("fs");
 const bot = new Discord.Client({disableEveryone: true});
 bot.commands = new Discord.Collection();
+let version = botconfig.version;
 
 fs.readdir("./commands/", (err, files) => {
 
@@ -28,7 +28,7 @@ fs.readdir("./commands/", (err, files) => {
 
 bot.on("ready", async () => {
     console.log(`${bot.user.username} je online!`);
-    bot.user.setGame("Beta 1.3.1!")
+    bot.user.setGame(`${version}`);
 });
 
 bot.on("message", async message => {
@@ -48,8 +48,24 @@ bot.on("message", async message => {
 
     function myTimer() {
     var d = new Date();
-    return message.channel.send("!!Staty");
-
+    var msgs = [
+        "!ftn freeM1CA",
+        "!ftn NNeTTik",
+        "!ftn Tian2121",
+        "!ftn NiceKill_CZ" 
+    ];
+    
+    function sendMsgs(msgs, delay) {
+        if (msgs.length < 1) return;
+        var remain = msgs.slice(1);
+        var sendRemain = sendMsgs.bind(null, remain, delay);
+        message.channel.send(msgs[0]).then(function() {
+            setTimeout(sendRemain, delay);
+        });
+    }
+    
+    sendMsgs(msgs, 5500);
+        
     }
 };
 
@@ -66,7 +82,7 @@ bot.on("message", async message => {
         ];
         
         function sendMsgs(msgs, delay) {
-            if (msgs.length < 1) return; // we're done
+            if (msgs.length < 1) return;
             var remain = msgs.slice(1);
             var sendRemain = sendMsgs.bind(null, remain, delay);
             message.channel.send(msgs[0]).then(function() {
@@ -177,6 +193,23 @@ bot.on("message", async message => {
 
     if(cmd === `Synu`){
     return message.channel.send("Tati?");
+    }
+
+    if(cmd == `${prefix}info`){
+        message.channel.send("------------------------------------");
+        message.channel.send(new Date().getTime() - message.createdTimestamp + "ms");
+        message.channel.send(`~${version}~`);
+        message.channel.send("Visual Studio Code + JavaScript");
+        message.channel.send("Kontakt: NotBot@freem1ca.8u.cz");
+        message.channel.send("Love ya! Papa :heart:");
+        message.channel.send("------------------------------------");
+    }
+
+    if(cmd === `Ping`){
+        return message.channel.send("Nebudu s tebou hrát tuhle debilní hru... :smiley:");
+    }
+    if(cmd === `ping`){
+        return message.channel.send("Nebudu s tebou hrát tuhle debilní hru... :smiley:");
     }
     
 })
